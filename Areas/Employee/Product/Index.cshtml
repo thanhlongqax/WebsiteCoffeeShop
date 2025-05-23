@@ -1,0 +1,187 @@
+﻿@model IEnumerable<WebsiteCoffeeShop.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center mb-4 product-list-title">Danh sách sản phẩm</h2>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="text-end mb-3">
+            <a asp-action="Add" class="btn btn-success btn-pastel">+ Thêm sản phẩm</a>
+        </div>
+    }
+
+    <div class="product-container">
+        <div class="product-list">
+            @foreach (var item in Model)
+            {
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="@item.ImageUrl" alt="@item.Name">
+                    </div>
+                    <div class="product-info">
+                        <h3>@item.Name</h3>
+                        <p class="desc">@item.Description</p>
+                        <p class="price">💰 @item.Price.ToString("N0") đ</p>
+                        <p class="category">📂 Loại: @(item.Category?.Name ?? "Không có loại")</p>
+                        <p class="quantity">📦 Số lượng: <strong>@item.Quantity</strong></p>
+
+                        <div class="product-actions">
+                            <a asp-action="Display" asp-route-id="@item.Id" class="btn btn-info btn-sm btn-pastel-action">👁️ Xem</a>
+
+                            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+                            {
+                                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm btn-pastel-action">✏️ Sửa</a>
+                            }
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm btn-pastel-action"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">🗑️ Xóa</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .product-container {
+        background: linear-gradient(to right, #f9f9f9, #eef2ff);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    .product-list-title {
+        font-family: 'Playfair Display', serif;
+        color: #333;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        position: relative;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+        .product-list-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            border-radius: 2px;
+        }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        padding: 15px;
+        border: 1px solid #ddd;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+    .product-image img {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        padding-bottom: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .product-info .desc {
+        font-size: 14px;
+        color: #666;
+        min-height: 40px;
+    }
+
+    .product-info .price {
+        font-size: 16px;
+        color: #ff758c;
+        font-weight: bold;
+    }
+
+    .product-info .category, .product-info .quantity {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 5px;
+    }
+
+    .product-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .btn-pastel-action {
+        border-radius: 20px;
+        padding: 5px 15px;
+        font-size: 14px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn-pastel-action:hover {
+            transform: translateY(-2px);
+        }
+
+    .btn-info.btn-pastel-action {
+        background-color: #a3bffa;
+        color: white;
+        border: none;
+    }
+
+        .btn-info.btn-pastel-action:hover {
+            background-color: #7f9cf5;
+        }
+
+    .btn-warning.btn-pastel-action {
+        background-color: #ffd166;
+        color: black;
+        border: none;
+    }
+
+        .btn-warning.btn-pastel-action:hover {
+            background-color: #ffb703;
+        }
+
+    .btn-danger.btn-pastel-action {
+        background-color: #ff758c;
+        color: white;
+        border: none;
+    }
+
+        .btn-danger.btn-pastel-action:hover {
+            background-color: #e63946;
+        }
+</style>
