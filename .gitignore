@@ -96,5 +96,5 @@ TestResults/
 .idea/
 
 # Local secrets #
-appsetting.json
+appsettings.json
 secrets.json
