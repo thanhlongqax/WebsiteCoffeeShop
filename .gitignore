@@ -95,6 +95,8 @@ TestResults/
 # JetBrains Rider #
 .idea/
 
-# Local secrets #
-appsettings.json
+# Secrets and config
 secrets.json
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
