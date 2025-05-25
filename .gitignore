@@ -1,4 +1,4 @@
-﻿## Build Folders ##
+## Build Folders ##
 bin/
 obj/
 
@@ -96,4 +96,5 @@ TestResults/
 .idea/
 
 # Local secrets #
+appsetting.json
 secrets.json
