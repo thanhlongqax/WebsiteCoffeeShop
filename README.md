@@ -128,7 +128,7 @@ Implemented with `RoleManager` and `UserManager`.
 
 ## 📷 UI Screenshots
 
-📌 Here are some screenshots from the system:
+📌 
 
 ### 🏪 About Page
 
