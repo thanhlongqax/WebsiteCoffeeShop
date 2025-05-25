@@ -560,29 +560,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <!-- Common navigation items for all users -->
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                 
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <!-- Items for Employees and Admins -->
-                            <li class="nav-link">
-                                <a class="nav-link" asp-area="Admin" asp-controller="Statistics" asp-action="Index">Thống kê đơn hàng</a>
-                            </li>
-                        }
-                    }
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Quản lý sản phẩm</a>
+                        <a class="nav-link" asp-area="Employee" asp-controller="Product" asp-action="Index">Quản lý sản phẩm</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="Admin" asp-controller="Categories" asp-action="Index">Quản lý danh mục</a>
+                        <a class="nav-link" asp-area="Employee" asp-controller="Categories" asp-action="Index">Quản lý danh mục</a>
                     </li>
+        
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="History">Quản Lý Đơn hàng</a>
+                        <a class="dropdown-item" asp-area="Employee" asp-controller="DiscountCode" asp-action="Index">Quản lý mã khuyến mãi</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="dropdown-item" asp-area="Admin" asp-controller="DiscountCode" asp-action="Index">Quản lý mã khuyến mãi</a>
-                    </li>
+            
                 </ul>
 
                 <div class="d-flex align-items-center">
@@ -601,14 +589,14 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
                                     <i class="bi bi-person-circle"></i>
                                     @UserManager.GetUserName(User)
-                                    @if (User.IsInRole("Admin"))
+                                    @if (User.IsInRole("Employee"))
                                     {
-                                        <span class="role-badge role-admin">Admin</span>
+                                        <span class="role-badge role-employee">Nhân viên</span>
                                     }
+                       
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index"><i class="bi bi-person"></i> Thông tin tài khoản</a></li>
-
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form asp-area="Identity" asp-page="/Account/Logout" method="post">

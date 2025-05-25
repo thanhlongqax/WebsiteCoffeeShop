@@ -82,12 +82,12 @@ app.MapAreaControllerRoute(
     areaName: "Admin",
     pattern: "Admin/{controller=Statistics}/{action=Index}/{id?}");
 
-// Định tuyến khu vực User
-//app.MapAreaControllerRoute(
-//    name: "User",
-//    areaName: "User",
-//    pattern: "User/{controller=Product}/{action=Index}/{id?}");
-// Định tuyến mặc định
+
+// Định tuyến khu vực Employee
+app.MapAreaControllerRoute(
+    name: "Employee",
+    areaName: "Employee",
+    pattern: "Employee/{controller=Product}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
