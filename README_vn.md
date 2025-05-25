@@ -126,22 +126,39 @@ Sử dụng `RoleManager` và `UserManager` để phân quyền.
 ## 📷 UI Screenshots  
 📌 
 **Giới thiệu**
-![alt text](Docs\about.jpg)
-**Đăng nhập**
-![alt text](Docs\login.jpg)
-**Thống kê**
-![alt text](Docs\statistics.jpg)
-**Quản lý danh mục**
-![alt text](Docs\category.jpg)
-**Quản lý sản phẩm**
-![alt text](Docs\product.jpg)
-![alt text](Docs\category.jpg)
-**Quản lý mã khuyến mãi**
-![alt text](Docs\discountCode.jpg)
-**Lịch sử đơn hàng**
-![alt text](Docs\order.jpg)
-**Thiết lập tài khoản**
-![alt text](Docs\setting.jpg)
+### 🏪 About Page
+
+![About](Docs/about.jpg)
+
+### 🔐 Login Page
+
+![Login](Docs/login.jpg)
+
+### 📊 Statistics Dashboard
+
+![Statistics](Docs/statistics.jpg)
+
+### 🗂️ Category Management
+
+![Category](Docs/category.jpg)
+
+### 📦 Product Management
+
+![Product](Docs/product.jpg)
+
+### 🎫 Discount Code Management
+
+![Discount](Docs/discountCode.jpg)
+
+### 📜 Order History
+
+![Order History](Docs/order.jpg)
+
+### ⚙️ Account Settings
+
+![Settings](Docs/setting.jpg)
+
+---
 ---   
 
 ## 👤 Author  
